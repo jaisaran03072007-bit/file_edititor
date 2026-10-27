@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Piece Tree Editor</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Piece Tree Editor</h1>
+  <div class="bar">
+    <input id="path" type="text" placeholder="file path, e.g. sample_document.txt">
+    <button id="open">Open file</button>
+    <button id="save">Save</button>
+    <button id="saveas">Save As</button>
+    <button id="undo">Undo</button>
+    <button id="redo">Redo</button>
+  </div>
+  <div id="status"></div>
+  <p id="error"></p>
+  <div class="main">
+    <section>
+      <h2>Document (type directly; every edit goes to the Piece Tree)</h2>
+      <textarea id="doc" spellcheck="false"></textarea>
+
+      <div class="ops">
+        <h3>Insert</h3>
+        <input id="ipos" type="number" min="0" placeholder="position">
+        <textarea id="itext" placeholder="text to insert (can be several lines)"></textarea>
+        <button id="insert">Insert at position</button>
+        <button id="insertCaret">Insert at cursor</button>
+      </div>
+
+      <div class="ops">
+        <h3>Delete</h3>
+        <input id="dpos" type="number" min="0" placeholder="start">
+        <input id="dlen" type="number" min="0" placeholder="length">
+        <button id="delete">Delete range</button>
+        <button id="deleteSel">Delete selected text</button>
+      </div>
+    </section>
+    <section>
+      <h2>AVL tree</h2>
+      <div id="tree"></div>
+    </section>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
